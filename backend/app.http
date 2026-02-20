@@ -1,0 +1,43 @@
+
+POST http://localhost:3000/api/auth/login
+Content-Type : application/json
+
+{
+    "email" : "bhanu@gmail.com",
+    "password" : "bhanu@1234"
+}
+
+POST http://localhost:3000/api/auth/login
+Content-Type : application/json
+
+{
+    "email" : "bhanu@gmail.com",
+    "password" : "bhanu@124"
+}
+
+GET http://localhost:3000/users/1
+
+GET http://localhost:3000/posts/2
+
+
+
+DELETE http://localhost:3000/posts/6
+
+
+POST http://localhost:3000/posts
+Content-Type : application/json
+
+{
+    "user_id" : 3,
+    "caption" : "Sunset and serenity",
+    "img" : "https://res.cloudinary.com/dsqphsoxb/image/upload/v1760428105/mountain-landscape_nnviov.jpg"
+
+}
+
+PUT http://localhost:3000/posts/1
+Content-Type : application/json
+
+{
+    "caption" : "The forest held its breath, while I found mine"
+}
+
