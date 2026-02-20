@@ -1,0 +1,31 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.form{
+  width: 400px;
+  height: 250px;
+  box-shadow: 2px 4px 4px 2px rgb(127, 196, 237);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+input{
+  border: 2px dotted #bfbfbf;
+  padding: 10px;
+}
+.image{
+  width: 400px;
+  height: 400px;
+  margin: 10px;
+}
+img{
+  width: 300px;
+  height: 250px;
+}
