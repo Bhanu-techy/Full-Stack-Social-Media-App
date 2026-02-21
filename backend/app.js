@@ -49,7 +49,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ dest: "temp/" });
 
-//app.use("/uploads", express.static("uploads"));
 
 const cloudinary = require("cloudinary").v2;
 
@@ -146,8 +145,6 @@ app.post("/upload", upload.single("image"),async (req, res) => {
     // Cloud URL
     const imageUrl = result.secure_url;
     
-
-    // Save URL in DB
     db.run(
       "INSERT INTO posts (user_id, caption, img) VALUES (?, ?, ?)",
       [ user_id, caption, imageUrl],
@@ -169,8 +166,8 @@ app.post("/upload", upload.single("image"),async (req, res) => {
 });
 
 
-app.get('/images', async (req, res)=>{
-  const addQuery = 'select * from images'
+app.get('/users', async (req, res)=>{
+  const addQuery = 'select * from users'
   const response = await db.all(addQuery)
   res.send(response)
 })
