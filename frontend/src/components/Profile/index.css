@@ -1,0 +1,70 @@
+.profile-img{
+    width: 400px;
+}
+.profile-bio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva;
+}
+.profile-posts{
+    padding: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.profile-head{
+    font-size: 25px;
+    text-align: center;
+}
+.profile-list{
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #bfbfbf;
+}
+.button-div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.edit-btn{
+border: none;
+    background-color: lawngreen;
+    color: #ffff;
+    border-radius: 2px;
+    font-family: Arial;
+}
+.del-btn{
+    border: none;
+    background-color: red;
+    color: #ffff;
+    border-radius: 2px;
+    font-family: Arial;
+}
+.caption-input{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid #bfbfbf;
+    
+    height: 100px;
+}
+.profile-bg{
+    background-color: rgb(239, 243, 184);
+}
+.post-head{
+    display: flex;
+    width: 300px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width : 576px){
+    .profile-img{
+        width: 300px;
+    }
+}
