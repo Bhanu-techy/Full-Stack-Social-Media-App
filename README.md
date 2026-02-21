@@ -141,11 +141,7 @@ Assignment has been evaluated based on the following:
 
 ### Backend Source
 
-For Backend created a seperate repository
-
-- Github repo : https://github.com/Bhanu-techy/backendapi.git
-
-- Backend Api : https://backendapi-yv7s.onrender.com
+- Backend Api : https://userpost-management.onrender.com
 
 ### backEnd endpoints 
 

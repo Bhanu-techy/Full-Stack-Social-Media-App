@@ -1,13 +1,13 @@
-const express = require('express')
-const path = require('path')
+const express = require('express');
+const path = require('path');
 
-const {open} = require('sqlite')
-const sqlite3 = require('sqlite3')
-const cors = require('cors')
-const app = express()
-const jwt = require('jsonwebtoken')
+const {open} = require('sqlite');
+const sqlite3 = require('sqlite3');
+const cors = require('cors');
+const app = express();
+const jwt = require('jsonwebtoken');
 const multer = require("multer");
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 
 app.use(cors());
 app.use(express.json());
@@ -16,7 +16,7 @@ dotenv.config();
 
 const bcrypt = require('bcrypt')
 
-const dbPath = path.join(__dirname, 'database.db')
+const dbPath = path.join(__dirname, 'database.db');
 
 let db = null
 
@@ -36,7 +36,7 @@ const initializeDBAndServer = async () => {
   }
 }
 
-initializeDBAndServer()
+initializeDBAndServer();
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -74,7 +74,7 @@ app.post('/login', async (request, response) => {
       const payload = {id: dbUser.id, email: dbUser.email}
       const jwtToken = jwt.sign(payload, 'MY_SECRET_TOKEN')
       response.status(200)
-      response.send({jwt_token: jwtToken})
+      response.send({jwt_token: jwtToken, userId : dbUser.id})
     } else {
       response.status(400)
       response.send({error_msg: 'Invalid Password'})

@@ -15,9 +15,8 @@ const Login = () =>{
 
     const submitForm = async (event)=>{
         event.preventDefault()
-        const url = 'https://backendapi-yv7s.onrender.com/login'
+        const url = 'https://userpost-management.onrender.com/login'
         const userDetails = {email, password}
-        console.log(userDetails)
         const options = {
             method : 'POST',
             headers : {
@@ -30,6 +29,7 @@ const Login = () =>{
         
         if (response.ok){
            Cookies.set('jwt_token', data.jwt_token, {expires : 30})
+           Cookies.set('userId', data.userId, {expires : 30})
             navigate("/", {replace : true})
             console.log(data)
         }else{
