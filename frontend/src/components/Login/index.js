@@ -31,7 +31,7 @@ const Login = () =>{
            Cookies.set('jwt_token', data.jwt_token, {expires : 30})
            Cookies.set('userId', data.userId, {expires : 30})
             navigate("/", {replace : true})
-            console.log(data)
+            
         }else{
             console.log(data.error_msg)
             setShowErr(true)

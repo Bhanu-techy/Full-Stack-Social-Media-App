@@ -17,6 +17,7 @@ function Header() {
         <Link to="/">
         <p>Home</p>
         </Link>
+        <Link to="/myprofile">Myprofile</Link>
         <button onClick={logoutBtn} className='logout-btn'>Logout</button>
     </nav>
   )

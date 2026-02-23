@@ -29,7 +29,6 @@ const initializeDBAndServer = async () => {
     app.listen(5000, () => {
       console.log('Server Running at http://localhost:5000/')
     })
-    db.run('delete from images where id =23')
   } catch (e) {
     console.log(`DB Error: ${e.message}`)
     process.exit(1)
@@ -167,7 +166,7 @@ app.post("/upload", upload.single("image"),async (req, res) => {
 
 
 app.get('/users', async (req, res)=>{
-  const addQuery = 'select * from users'
+  const addQuery = 'select * from user_profiles'
   const response = await db.all(addQuery)
   res.send(response)
 })
