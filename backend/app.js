@@ -161,12 +161,12 @@ app.post("/upload", upload.single("image"),async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-  
 });
 
 
-app.get('/users', async (req, res)=>{
-  const addQuery = 'select * from user_profiles'
+app.get('/userprofile/:id', async (req, res)=>{
+  const {id} = req.params
+  const addQuery = `select * from user_profiles where user_id =${id}`
   const response = await db.all(addQuery)
   res.send(response)
 })

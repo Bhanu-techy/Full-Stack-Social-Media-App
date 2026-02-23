@@ -20,7 +20,6 @@ function Home() {
         getPosts()
     },[])
 
-   
 
   if (apistate === "progress"){
     return <div className='loader'>
@@ -31,7 +30,6 @@ function Home() {
     return(
             <div className='home-bg'>
             <Header/>
-            
             <div className='home-container'>
                 <div className='home'>
                 <h1>Posts</h1>
