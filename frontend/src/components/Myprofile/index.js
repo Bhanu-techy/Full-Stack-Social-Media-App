@@ -1,24 +1,29 @@
 import {useState, useEffect} from 'react'
 import Header from '../Header'
 import Cookies from 'js-cookie'
+import Postpopup from '../Postpopup'
+import Popup from 'reactjs-popup'
+
+import 'reactjs-popup/dist/index.css'
+
+import './index.css'
 
 function Myprofile() {
     const userId = Cookies.get('userId')
  
      const [details, setDetails] = useState([])
-     const [posts, setPosts] = useState([])
      const [caption, setCaption] = useState("")
-     const [editCation, setEditCation] = useState(false)
+     const [posts, setPosts] = useState([])
+     
      const [postId, setPostid] = useState("")
-     const [addPost, setAddPost] = useState(false)
-     const [file, setFile] = useState(null)
+     
  
  
    useEffect(()=>{
    const fetchData = async () =>{
-     const profileRes = await fetch(`https://userpost-management.onrender.com/users/${userId}`);
+     const profileRes = await fetch(`https://userpost-management.onrender.com/userprofile/${userId}`);
      const profileData = await profileRes.json();
-     setDetails(profileData)
+     setDetails(profileData[0])
  
      const postRes = await fetch(`https://userpost-management.onrender.com/posts/${userId}`);
      const postData = await postRes.json();
@@ -40,13 +45,8 @@ function Myprofile() {
      await fetch(url, options)
      setCaption("")
    }
- 
-   const onChangeCaption =e =>{
-     setCaption(e.target.value)
-   }
- 
+
    const onClickEdit = (id) => {
-     setEditCation(true)
      setPostid(id)
    }
  
@@ -61,66 +61,60 @@ function Myprofile() {
      
    }
  
-   const uploadImage = async () => {
-     if (!file) {
-       alert("Please select an image");
-       return;
-     }
+  
  
-     const formData = new FormData();
-     formData.append("image", file);
-     formData.append("user_id", userId)
-     formData.append("caption", caption)
-     
-     const response = await fetch("https://userpost-management.onrender.com/upload", {
-       method: "POST",
-       body: formData,
-     });
- 
-     await response.json();
-     if (response.ok){
-       console.log("image uploaded successfully")
-     }
-   }
- 
-   const {email, name} = details
+   const {username, bio, followers_count, following_count, profile_image} = details
+   const post_count = posts.length
+
+   const PostSuccessView = () => (
+    <div className="profile-posts-div">
+         <div className="post-head">
+           <h1 className="profile-head">Posts</h1>
+           <Postpopup/>
+         </div>
+         <ul className='profile-post-list'>
+         {posts.map(each => (
+           <li key={each.post_id} className="profile-list">
+             <img src={each.img} className="profile-post" alt="post"/>
+             <p>{each.caption}</p>
+             <div className="button-div">
+             <div className="popup-container">
+            <Popup
+              modal
+              trigger={
+                <button className="edit-btn" onClick={() =>onClickEdit(each.post_id)}>Edit caption</button>
+              }>
+               <input type="text" onChange={(e)=>setCaption(e.target.value)} placeholder="Enter New Caption"/>
+               <button onClick={onSaveCaption}>Save</button>
+            </Popup>
+          </div>
+             <button className="del-btn" onClick={()=>onClickDelPost(each.post_id)}>Del Post</button>
+             </div>
+           </li>
+         ))}
+         </ul>
+       </div>
+   )
  
    return (
      <div className="profile-bg">
        <Header />
        <div className="profile-bio">
-         <h1 className="profile-head">Profile</h1>
-         <p>Name : {name}</p>
-         <p>Email : {email}</p>
+         <div className='profile-img-div'>
+          <img src={profile_image} alt={username} className='profile-img'/>
+          <p>{bio}</p>
+         </div>
+         <div>
+          <h2>{username}</h2>
+          <div className="profile-details">
+            <p>{post_count} post</p>
+            <p>{followers_count} followers</p>
+            <p>{following_count} Following</p>
+          </div>
+         </div>
        </div>
        <hr/>
-       {editCation && <div className="caption-input">
-               <input type="text" onChange={onChangeCaption} placeholder="Enter New Caption"/>
-               <button onClick={onSaveCaption}>Save</button>
-               </div>}
-       {addPost && <div className="caption-input">
-         <input type='file'  accept="image/png, image/jpeg, image/jpg, image/webp" onChange={(e) => setFile(e.target.files[0])}/>
-         <br/>
-         <input type="text" onChange={onChangeCaption} placeholder="Enter New Caption"/>
-         <button onClick={uploadImage}>Add</button>
-         </div>
-         }
-       <ul className="profile-posts">
-         <div className="post-head">
-           <h1 className="profile-head">Posts</h1>
-           <button onClick={()=>setAddPost(true)}>Add Post</button>
-         </div>
-         {posts.map(each => (
-           <li key={each.post_id} className="profile-list">
-             <img src={each.img} className="profile-img" alt="post"/>
-             <p>{each.caption}</p>
-             <div className="button-div">
-             <button className="edit-btn" onClick={() =>onClickEdit(each.post_id)}>Edit caption</button>
-             <button className="del-btn" onClick={()=>onClickDelPost(each.post_id)}>Del Post</button>
-             </div>
-           </li>
-         ))}
-       </ul>
+       <PostSuccessView />
      </div>
    )
 }

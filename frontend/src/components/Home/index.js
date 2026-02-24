@@ -20,13 +20,6 @@ function Home() {
         getPosts()
     },[])
 
-
-  if (apistate === "progress"){
-    return <div className='loader'>
-        <h1>Loading...</h1>
-    </div>
-  }
-  else 
     return(
             <div className='home-bg'>
             <Header/>

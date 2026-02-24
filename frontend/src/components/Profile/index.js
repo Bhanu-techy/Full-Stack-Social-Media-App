@@ -12,9 +12,9 @@ function Profile(){
 
   useEffect(()=>{
   const fetchData = async () =>{
-    const profileRes = await fetch(`https://userpost-management.onrender.com/users/${id}`);
+    const profileRes = await fetch(`https://userpost-management.onrender.com/userprofile/${id}`);
     const profileData = await profileRes.json();
-    setDetails(profileData)
+    setDetails(profileData[0])
 
     const postRes = await fetch(`https://userpost-management.onrender.com/posts/${id}`);
     const postData = await postRes.json();
@@ -23,27 +23,36 @@ function Profile(){
   fetchData()
     },[id])
 
-
-
-  const {email, name} = details
+    
+   const {username, bio, following_count, followers_count, profile_image} = details
+   const post_count = posts.length
 
   return (
     <div className="profile-bg">
       <Header />
       <div className="profile-bio">
-        <h1 className="profile-head">Profile</h1>
-        <p>Name : {name}</p>
-        <p>Email : {email}</p>
+         <div className="profile-img-div">
+          <img src={profile_image} alt={username} className='profile-img'/>
+          <p>{bio}</p>
+         </div>
+         <div>
+          <h2>{username}</h2>
+          <div className="profile-details">
+            <p>{post_count} post</p>
+            <p>{followers_count} followers</p>
+            <p>{following_count} Following</p>
+          </div>
+         </div>
       </div>
       <hr/>
       <div className="">
         <div className="post-head">
           <h1 className="profile-head">Posts</h1>
         </div>
-        <ul className="profile-posts">
+        <ul className='profile-post-list'>
         {posts.map(each => (
           <li key={each.post_id} className="profile-list">
-            <img src={each.img} className="profile-img" alt="post"/>
+            <img src={each.img} className="profile-post" alt="post"/>
             <p>{each.caption}</p>
             <div className="button-div">
             </div>

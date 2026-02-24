@@ -65,7 +65,7 @@ app.post('/login', async (request, response) => {
 
   if (dbUser === undefined) {
     response.status(400)
-    response.send('Invalid User')
+    response.send({error_msg: 'Invalid User'})
   } else {
     const isPasswordMatched = await bcrypt.compare(password, dbUser.password)
 

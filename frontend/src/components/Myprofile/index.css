@@ -1,0 +1,35 @@
+
+.profile-posts-div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.profile-post{
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+}
+.profile-post-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.profile-img-div{
+    width: 230px;
+    margin: 10px;
+}
+.post-head{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.del-btn{
+     background-color: red;
+     height: 25px;
+     color: white;
+     border: none;
+     border-radius: 3px;
+}
