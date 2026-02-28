@@ -1,24 +1,50 @@
 import {useState, useEffect } from 'react'
 import Header from '../Header'
+import {BsHeart} from 'react-icons/bs'
 import { Link} from 'react-router-dom'
+import {FaRegComment} from 'react-icons/fa'
+import {BiShareAlt} from 'react-icons/bi'
+//import {FcLike} from 'react-icons/fc'
 
 import './index.css'
+
+const stateConstants = {
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  in_progress: 'LOADING',
+}
 
 function Home() {
 
     const [posts, setData] = useState([])
-    const [apistate, setApiState] = useState("progress")
+    const [apistate, setApiState] = useState(stateConstants.in_progress)
 
     useEffect(()=>{        
         const getPosts = async () => {
             const url ='https://userpost-management.onrender.com/posts'
             const response = await fetch(url)
-            const result =await response.json()
-            setData(result)
-            setApiState("success")
+            
+            if (response.ok){
+                const result =await response.json()
+                setApiState(stateConstants.success)
+                setData(result)
+                setApiState("success")
+            }else{
+                setApiState(stateConstants.failure)
+            }
+
         }
         getPosts()
     },[])
+
+    if (apistate===stateConstants.in_progress){
+        return (
+            <>
+            <Header />
+            <h1>Loading...</h1>
+            </>
+        )
+    }
 
     return(
             <div className='home-bg'>
@@ -33,6 +59,11 @@ function Home() {
                             <p className='text'>{each.name}</p>
                             </Link>
                             <img src={each.img} alt="post" className='image'/>
+                            <div className='icons-div'>
+                                <BsHeart/>
+                                <FaRegComment/>
+                                <BiShareAlt/>
+                            </div>
                             <p className='text'>{each.caption}</p>
                         </li>
                     ))}

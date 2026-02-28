@@ -76,7 +76,7 @@ app.post('/login', async (request, response) => {
       response.send({jwt_token: jwtToken, userId : dbUser.id})
     } else {
       response.status(400)
-      response.send({error_msg: 'Invalid Password'})
+      response.json({error_msg: 'Invalid Password'})
     }
   }
 })
