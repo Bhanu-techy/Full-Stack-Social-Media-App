@@ -47,12 +47,12 @@ function Home() {
     }
 
     return(
-            <div className='home-bg'>
+            <>
             <Header/>
             <div className='home-container'>
                 <div className='home'>
                 <h1>Posts</h1>
-                <ul>
+                <ul  className='post-list'>
                     {posts.map(each =>(
                         <li key={each.post_id} className='post-card'>
                             <Link to={`profile/${each.user_id}`}>
@@ -70,7 +70,7 @@ function Home() {
                 </ul>
             </div>
             </div>
-            </div>
+            </>
         )
 
 }

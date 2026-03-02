@@ -2,9 +2,6 @@
     width: 100%;
     height: 75%;
 }
-.home-bg{
-    width: 100vw;
-}
 .home{
     width: 75vw;
     align-items: center;
@@ -24,16 +21,15 @@ h1{
     align-items: center;
     background-color:rgb(229, 236, 193);
 }
-ul{
+.post-list{
     padding: 0px;
     list-style: none;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction:column ;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-
 }
 .post-card{
     border: 2px solid #bfbfbf;
@@ -80,9 +76,12 @@ ul{
         width: 100vw;
     }
     .post-card{
-        width: 95%;
-        height: 370px;
+        width: 100%;
+        height: 400px;
         padding-bottom: 5px;
+        margin: 0px;
+        border: none;
+        margin-bottom: 10px;
     }
     .home-container{
         align-items: flex-start;

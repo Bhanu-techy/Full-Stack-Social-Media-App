@@ -56,12 +56,10 @@ function Myprofile() {
      const options = {
        method : 'DELETE',
      }
- 
      await fetch(url, options)
      
    }
  
-  
  
    const {username, bio, followers_count, following_count, profile_image} = details
    const post_count = posts.length
@@ -74,8 +72,8 @@ function Myprofile() {
          </div>
          <ul className='profile-post-list'>
          {posts.map(each => (
-           <li key={each.post_id} className="profile-list">
-             <img src={each.img} className="profile-post" alt="post"/>
+           <li key={each.post_id} className="profile-post">
+             <img src={each.img} className="profile-post-img" alt="post"/>
              <p>{each.caption}</p>
              <div className="button-div">
              <div className="popup-container">
@@ -102,15 +100,16 @@ function Myprofile() {
        <div className="profile-bio">
          <div className='profile-img-div'>
           <img src={profile_image} alt={username} className='profile-img'/>
-          <p>{bio}</p>
+          <p className='bio-md'>{bio}</p>
          </div>
          <div>
           <h2>{username}</h2>
           <div className="profile-details">
-            <p>{post_count} post</p>
-            <p>{followers_count} followers</p>
-            <p>{following_count} Following</p>
+            <p className='profile-count'>{post_count} <span>post</span> </p>
+            <p className='profile-count'>{followers_count} <span>followers</span></p>
+            <p className='profile-count'>{following_count} <span>following</span></p>
           </div>
+          <p className='bio-sm'>{bio}</p>
          </div>
        </div>
        <hr/>
