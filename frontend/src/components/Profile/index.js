@@ -33,15 +33,16 @@ function Profile(){
       <div className="profile-bio">
          <div className="profile-img-div">
           <img src={profile_image} alt={username} className='profile-img'/>
-          <p>{bio}</p>
+          <p className='bio-md'>{bio}</p>
          </div>
          <div>
           <h2>{username}</h2>
           <div className="profile-details">
-            <p>{post_count} post</p>
-            <p>{followers_count} followers</p>
-            <p>{following_count} Following</p>
+            <p className='profile-count'>{post_count} <span>post</span> </p>
+            <p className='profile-count'>{followers_count} <span>followers</span></p>
+            <p className='profile-count'>{following_count} <span>following</span></p>
           </div>
+          <p className='bio-sm'>{bio}</p>
          </div>
       </div>
       <hr/>

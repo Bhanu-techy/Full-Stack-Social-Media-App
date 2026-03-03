@@ -4,6 +4,7 @@ import {BsHeart} from 'react-icons/bs'
 import { Link} from 'react-router-dom'
 import {FaRegComment} from 'react-icons/fa'
 import {BiShareAlt} from 'react-icons/bi'
+import { Oval } from "react-loader-spinner";
 //import {FcLike} from 'react-icons/fc'
 
 import './index.css'
@@ -41,7 +42,18 @@ function Home() {
         return (
             <>
             <Header />
-            <h1>Loading...</h1>
+            <div className='loader-container'>
+            <Oval
+            visible={true}
+            height="80"
+            width="80"
+            color="#2511a7"
+            ariaLabel="oval-loading"
+            secondaryColor="#3a6be6"
+            strokeWidth={2}
+            strokeWidthSecondary={2}
+          />
+          </div>
             </>
         )
     }
@@ -69,7 +81,6 @@ function Home() {
                     ))}
                 </ul>
             </div>
-        
             </>
         )
 

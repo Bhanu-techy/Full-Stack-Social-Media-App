@@ -74,16 +74,18 @@ function Myprofile() {
          {posts.map(each => (
            <li key={each.post_id} className="profile-post">
              <img src={each.img} className="profile-post-img" alt="post"/>
-             <p>{each.caption}</p>
+             <p className='profile-caption'>{each.caption}</p>
              <div className="button-div">
-             <div className="popup-container">
+            <div className="popup-container">
             <Popup
               modal
               trigger={
                 <button className="edit-btn" onClick={() =>onClickEdit(each.post_id)}>Edit caption</button>
               }>
+              <div className='caption-popup'>
                <input type="text" onChange={(e)=>setCaption(e.target.value)} placeholder="Enter New Caption"/>
                <button onClick={onSaveCaption}>Save</button>
+               </div>
             </Popup>
           </div>
              <button className="del-btn" onClick={()=>onClickDelPost(each.post_id)}>Del Post</button>

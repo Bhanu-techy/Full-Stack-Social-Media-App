@@ -36,7 +36,7 @@ function Postpopup() {
         <Popup
             modal
             trigger={
-            <button className="edit-btn">Add Post</button>
+            <button className="edit-btn">Add Post +</button>
             }>
             <div className='popup-div'>
             <input type='file'  accept="image/png, image/jpeg, image/jpg, image/webp" onChange={(e) => setFile(e.target.files[0])}/>  
