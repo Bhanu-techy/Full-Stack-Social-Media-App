@@ -2,24 +2,21 @@
     width: 100%;
     height: 75%;
 }
-.home{
-    width: 75vw;
-    align-items: center;
-}
 hr{
     width: 98vw;
 }
-h1{
-    margin-left: 10px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.heading{
+    width: 100px;
+    margin-left: 20px;
+    font-family:unset;
 }
 .home-container{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 100vw;
+    width: 100%;
     align-items: center;
-    background-color:rgb(229, 236, 193);
+    background-color: white;
 }
 .post-list{
     padding: 0px;
@@ -28,16 +25,20 @@ h1{
     display: flex;
     flex-direction:column ;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
+    margin: 0px;
+    
 }
 .post-card{
-    border: 2px solid #bfbfbf;
-    margin: 10px;
     width: 70%;
     height: 600px;
     background-color: #ffff;
     border-radius: 5px;
+    border: 2px solid #bfbfbf;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 .text{
     font-size: 18px;
@@ -77,17 +78,13 @@ h1{
     }
     .post-card{
         width: 100%;
-        height: 400px;
+        height: 410px;
         padding-bottom: 5px;
         margin: 0px;
         border: none;
-        margin-bottom: 10px;
     }
     .home-container{
         align-items: flex-start;
-    }.home{
-        width: 100vw;
-        
     }.image{
         height: 70%;
     }

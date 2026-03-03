@@ -50,8 +50,7 @@ function Home() {
             <>
             <Header/>
             <div className='home-container'>
-                <div className='home'>
-                <h1>Posts</h1>
+                <h1 className='heading'>Posts</h1>
                 <ul  className='post-list'>
                     {posts.map(each =>(
                         <li key={each.post_id} className='post-card'>
@@ -65,11 +64,12 @@ function Home() {
                                 <BiShareAlt/>
                             </div>
                             <p className='text'>{each.caption}</p>
+                            
                         </li>
                     ))}
                 </ul>
             </div>
-            </div>
+        
             </>
         )
 

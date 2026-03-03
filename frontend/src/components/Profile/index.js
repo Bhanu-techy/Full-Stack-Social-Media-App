@@ -51,8 +51,8 @@ function Profile(){
         </div>
         <ul className='profile-post-list'>
         {posts.map(each => (
-          <li key={each.post_id} className="profile-list">
-            <img src={each.img} className="profile-post" alt="post"/>
+          <li key={each.post_id} className="profile-post">
+            <img src={each.img} className="profile-post-img" alt="post"/>
             <p>{each.caption}</p>
             <div className="button-div">
             </div>
