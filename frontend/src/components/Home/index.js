@@ -29,7 +29,7 @@ function Home() {
                 const result =await response.json()
                 setApiState(stateConstants.success)
                 setData(result)
-                setApiState("success")
+                
             }else{
                 setApiState(stateConstants.failure)
             }

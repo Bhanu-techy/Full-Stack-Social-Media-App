@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react'
 import Header from '../Header'
 import Cookies from 'js-cookie'
+import { MdDelete } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
 import Postpopup from '../Postpopup'
 import Popup from 'reactjs-popup'
 
@@ -14,10 +16,7 @@ function Myprofile() {
      const [details, setDetails] = useState([])
      const [caption, setCaption] = useState("")
      const [posts, setPosts] = useState([])
-     
      const [postId, setPostid] = useState("")
-     
- 
  
    useEffect(()=>{
    const fetchData = async () =>{
@@ -80,15 +79,24 @@ function Myprofile() {
             <Popup
               modal
               trigger={
-                <button className="edit-btn" onClick={() =>onClickEdit(each.post_id)}>Edit caption</button>
+                <button onClick={() =>onClickEdit(each.post_id)}><CiEdit/></button>
               }>
               <div className='caption-popup'>
                <input type="text" onChange={(e)=>setCaption(e.target.value)} placeholder="Enter New Caption"/>
-               <button onClick={onSaveCaption}>Save</button>
+               <button onClick={onSaveCaption} className='save-btn'>Save</button>
                </div>
             </Popup>
           </div>
-             <button className="del-btn" onClick={()=>onClickDelPost(each.post_id)}>Del Post</button>
+               <Popup
+              modal
+              trigger={
+                <MdDelete size={25}/>
+              }>
+              <div className='caption-popup'>
+                  <p>Are you sure you want to delete this item?</p>
+                  <button className="del-btn" onClick={()=>onClickDelPost(each.post_id)}>Del Post</button>
+               </div>
+            </Popup>
              </div>
            </li>
          ))}

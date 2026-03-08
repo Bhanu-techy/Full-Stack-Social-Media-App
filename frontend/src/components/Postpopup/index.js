@@ -27,7 +27,8 @@ function Postpopup() {
  
      await response.json();
      if (response.ok){
-       console.log("image uploaded successfully")
+        setCaption("")
+        setFile(null)
      }
    }
 
