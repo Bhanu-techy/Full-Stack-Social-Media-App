@@ -41,8 +41,11 @@ function Myprofile() {
          },
              body : JSON.stringify(newData),
      }
-     await fetch(url, options)
+     const response = await fetch(url, options)
+     if (response.ok){
      setCaption("")
+     alert("Caption Edited Successfully")
+     }
    }
 
    const onClickEdit = (id) => {
@@ -55,7 +58,10 @@ function Myprofile() {
      const options = {
        method : 'DELETE',
      }
-     await fetch(url, options)
+     const response = await fetch(url, options)
+     if (response.ok){
+      alert("Post Deleted Successfully")
+     }
      
    }
  
@@ -71,7 +77,7 @@ function Myprofile() {
          </div>
          <ul className='profile-post-list'>
          {posts.map(each => (
-           <li key={each.post_id} className="profile-post">
+           <li key={each.post_id} className="myprofile-post">
              <img src={each.img} className="profile-post-img" alt="post"/>
              <p className='profile-caption'>{each.caption}</p>
              <div className="button-div">

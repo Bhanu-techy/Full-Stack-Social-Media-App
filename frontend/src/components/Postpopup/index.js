@@ -25,10 +25,10 @@ function Postpopup() {
        body: formData,
      });
  
-     await response.json();
      if (response.ok){
         setCaption("")
         setFile(null)
+        alert("Post added successfully")
      }
    }
 

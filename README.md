@@ -11,7 +11,7 @@
 
 ***Frontend*** (Primary Focus)
 
-- **Technology**: React.js (optionally Next.js)
+- **Technology**: React.js 
 
 - **Features**:
 
@@ -57,9 +57,6 @@ Dashboard Features
 
 - **CRUD Operations**:
     - Allow users to add, view, update, and delete the sample entity (eg., post, caption).
-
-- **Search and Filter UI**:
-    - Implement a search bar and filters to query the entity (e.g., search tasks by title or filter by status).
 
 - **Logout Flow**:
     - Provided a logout button that clears the JWT and redirects to the login page.
@@ -131,17 +128,10 @@ Assignment has been evaluated based on the following:
 
 ---
 
-## Tips for Success
-
-- **Start Early**: Begin as soon as possible to avoid last-minute issues.
-- **Test Thoroughly**: Test all features, including edge cases (e.g., invalid inputs, unauthorized access, or empty search results).
-- **Document Clearly**: A well-written `README.md` and API documentation will make your project stand out.
-- **Focus on Security**: Ensure secure JWT handling, password hashing, and input validation.
-- **Keep the UI Simple**: Focus on functionality and responsiveness rather than complex designs. A clean, minimal UI is sufficient.
 
 ### Backend Source
 
-- Backend Api : https://userpost-management.onrender.com
+- Backend Api : https://userpost-management.onrender.com/
 
 ### backEnd endpoints 
 
@@ -149,7 +139,9 @@ Assignment has been evaluated based on the following:
 
     For user login
 
-    sample login details :
+    User Credentials for Login :
+
+    ```
 
     {
         email : bhanu@gmail.com,
@@ -158,7 +150,13 @@ Assignment has been evaluated based on the following:
     {
         email : rahul@gmail.com,
         password : rahul@1234
+    },
+    {
+        email : saikumar@gmail.com,
+        password : saikumar@1234
     }
+
+    ```
 
 
 2. GET ../posts        : Retrive all posts with user id

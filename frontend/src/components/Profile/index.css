@@ -9,6 +9,19 @@
     padding: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva;
 }
+.profile-post{
+    height: 250px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    margin: 5px;
+    border: 2px solid #bfbfbf;
+    width: 340px;
+}
 .profile-img-div{
     width: 90%;
     margin: 10px;
