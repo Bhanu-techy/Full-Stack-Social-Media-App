@@ -4,7 +4,7 @@
 
 ## Objective
 
-    A full stack social media web application where users can register, login, create posts, upload images, and manage their profile. The application provides a home feed displaying posts and allows users to edit or delete their own posts.
+A full stack social media web application where users can register, login, create posts, upload images, and manage their profile. The application provides a home feed displaying posts and allows users to edit or delete their own posts.
 
 # Features
 
@@ -141,7 +141,7 @@ Assignment has been evaluated based on the following:
 
     For user login
 
-    User Credentials for Login :
+    User Credentials:
 
     ```
 
