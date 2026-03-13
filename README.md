@@ -1,11 +1,30 @@
 # Title
 
-***User-Post-management***
+***Full Stack Social Media Application***
 
 ## Objective
 
-   The goal is to build a Scalable Web App with Authentication & Dashboard using React.js for the frontend and a lightweight backend using Node.js/Express to facilitate API requests. The assignment must be completed within 3 days from the start date.
+    A full stack social media web application where users can register, login, create posts, upload images, and manage their profile. The application provides a home feed displaying posts and allows users to edit or delete their own posts.
 
+# Features
+
+User authentication (signup and login)
+
+Home page displaying posts from users
+
+User profile showing user details and posts
+
+Create, edit, and delete posts
+
+Upload images from local system
+
+Store uploaded images in cloud storage
+
+Responsive user interface
+
+Persistent login using client storage
+
+## Technologies Used
 
 #### Core Features to Implement
 
@@ -42,6 +61,8 @@
         - **Profile Fetching/Updating**: Allow users to view and update their profile details.
 
         - **CRUD Operations**: Support Create, Read, Update, Delete operations for a sample entity (e.g., post, caption).
+
+        - **Multer** : upload images
 
     - **Database**:
 
@@ -80,27 +101,6 @@ Dashboard Features
 4. **API Documentation**:
     - Provide a **Postman collection** or other API documentation for all endpoints.
 
-## Submission Process
-
-To ensure your submission is considered **valid**, you must submit the assignment **twice**:
-
-1. **First Submission**: To the form shared by **NXTWave**.
-
-    - Follow the instructions provided by NXTWave to submit your GitHub repository link and other required details.
-
-2. **Second Submission**: To the company via email.
-
-    - **Email Details**:
-
-        - **Subject**: Frontend Developer Task
-
-        - **Attachments**:
-            - **resume**.
-            - Link to your **GitHub repository** containing the frontend and backend code.
-            - **API documentation** (e.g., Postman collection).
-            - **Log files** (if applicable, e.g., server logs or error logs).
-            - Optionally, include links to your portfolio, blog, or other relevant work.
-
 
 ## Evaluation Criteria
 
@@ -126,6 +126,8 @@ Assignment has been evaluated based on the following:
     - Modular project structure for easy feature additions.
     - Scalability strategies outlined (e.g., caching, microservices, or load balancing).
 
+6.  **Image Upload**:
+    Images uploaded from the user's local system are processed using Multer in the backend and then uploaded to Cloudinary. Cloudinary returns a secure image URL which is stored in the database and used to display the image in the application.
 ---
 
 
