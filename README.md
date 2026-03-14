@@ -8,21 +8,21 @@ A full stack social media web application where users can register, login, creat
 
 # Features
 
-User authentication (signup and login)
+- User authentication (login)
 
-Home page displaying posts from users
+- Home page displaying posts from users
 
-User profile showing user details and posts
+- User profile showing user details and posts
 
-Create, edit, and delete posts
+- Create, edit, and delete posts
 
-Upload images from local system
+- Upload images from local system
 
-Store uploaded images in cloud storage
+- Store uploaded images in cloud storage
 
-Responsive user interface
+- Responsive user interface
 
-Persistent login using client storage
+- Persistent login using client storage
 
 ## Technologies Used
 
@@ -169,4 +169,4 @@ Assignment has been evaluated based on the following:
 
 5. PUT ../posts/:id     : Edit post caption
 
-6 POST ../posts         : Add post to user
+6. POST ../posts         : Add post to user
