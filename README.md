@@ -28,7 +28,7 @@ A full stack social media web application where users can register, login, creat
 
 #### Core Features to Implement
 
-***Frontend*** (Primary Focus)
+***Frontend***
 
 - **Technology**: React.js 
 
@@ -49,7 +49,7 @@ A full stack social media web application where users can register, login, creat
 
         - Redirected unauthenticated users to the login page.
     
-***Basic Backend*** (Supportive)
+***Basic Backend***
 
 - **Technology**: Node.js/Express
 
