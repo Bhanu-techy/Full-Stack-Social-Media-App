@@ -2,10 +2,9 @@ import {useState, useEffect} from 'react'
 import Header from '../Header'
 import Cookies from 'js-cookie'
 import { MdDelete } from "react-icons/md";
-import { CiEdit } from "react-icons/ci";
+import EditPopup from '../EditPopup';
 import Postpopup from '../Postpopup'
 import Popup from 'reactjs-popup'
-
 import 'reactjs-popup/dist/index.css'
 
 import './index.css'
@@ -14,9 +13,7 @@ function Myprofile() {
     const userId = Cookies.get('userId')
  
      const [details, setDetails] = useState([])
-     const [caption, setCaption] = useState("")
      const [posts, setPosts] = useState([])
-     const [postId, setPostid] = useState("")
  
    useEffect(()=>{
    const fetchData = async () =>{
@@ -31,27 +28,6 @@ function Myprofile() {
    fetchData()
      },[userId])
  
-   const onSaveCaption = async ()=> {
-     const url =`https://userpost-management.onrender.com/posts/${postId}`
-     const newData = {caption}
-     const options ={
-       method : 'PUT',
-       headers : {
-             "Content-Type" : "application/json"
-         },
-             body : JSON.stringify(newData),
-     }
-     const response = await fetch(url, options)
-     if (response.ok){
-     setCaption("")
-     alert("Caption Edited Successfully")
-     }
-   }
-
-   const onClickEdit = (id) => {
-     setPostid(id)
-   }
- 
    const onClickDelPost = async id =>{
      const url =`https://userpost-management.onrender.com/posts/${id}`
  
@@ -64,7 +40,6 @@ function Myprofile() {
      }
      
    }
- 
  
    const {username, bio, followers_count, following_count, profile_image} = details
    const post_count = posts.length
@@ -81,19 +56,9 @@ function Myprofile() {
              <img src={each.img} className="profile-post-img" alt="post"/>
              <p className='profile-caption'>{each.caption}</p>
              <div className="button-div">
-            <div className="popup-container">
-            <Popup
-              modal
-              trigger={
-                <button onClick={() =>onClickEdit(each.post_id)}><CiEdit/></button>
-              }>
-              <div className='caption-popup'>
-               <input type="text" onChange={(e)=>setCaption(e.target.value)} placeholder="Enter New Caption"/>
-               <button onClick={onSaveCaption} className='save-btn'>Save</button>
-               </div>
-            </Popup>
-          </div>
-               <Popup
+              <EditPopup post_id={each.post_id} />
+          <div className="popup-container">
+              <Popup
               modal
               trigger={
                 <MdDelete size={25}/>
@@ -103,6 +68,7 @@ function Myprofile() {
                   <button className="del-btn" onClick={()=>onClickDelPost(each.post_id)}>Del Post</button>
                </div>
             </Popup>
+            </div>
              </div>
            </li>
          ))}

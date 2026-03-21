@@ -1,11 +1,8 @@
 import {useState, useEffect } from 'react'
 import Header from '../Header'
-import {BsHeart} from 'react-icons/bs'
-import { Link} from 'react-router-dom'
-import {FaRegComment} from 'react-icons/fa'
-import {BiShareAlt} from 'react-icons/bi'
+import PostCard from '../PostCard'
+
 import { Oval } from "react-loader-spinner";
-//import {FcLike} from 'react-icons/fc'
 
 import './index.css'
 
@@ -65,19 +62,7 @@ function Home() {
                 <h1 className='heading'>Posts</h1>
                 <ul  className='post-list'>
                     {posts.map(each =>(
-                        <li key={each.post_id} className='post-card'>
-                            <Link to={`profile/${each.user_id}`}>
-                            <p className='text'>{each.name}</p>
-                            </Link>
-                            <img src={each.img} alt="post" className='image'/>
-                            <div className='icons-div'>
-                                <BsHeart/>
-                                <FaRegComment/>
-                                <BiShareAlt/>
-                            </div>
-                            <p className='text'>{each.caption}</p>
-                            
-                        </li>
+                        <PostCard details={each} key={each.post_id}/>
                     ))}
                 </ul>
             </div>
