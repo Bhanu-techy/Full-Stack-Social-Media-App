@@ -1,9 +1,7 @@
 import {useState, useEffect } from 'react'
 import Header from '../Header'
 import PostCard from '../PostCard'
-
 import { Oval } from "react-loader-spinner";
-
 import './index.css'
 
 const stateConstants = {
